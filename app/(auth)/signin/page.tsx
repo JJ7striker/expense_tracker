@@ -6,24 +6,18 @@ import React, { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '@/lib/firebase/firebase'
 import { useRouter } from 'next/navigation'
-import { Auth } from '@/context/AuthContext'
+import { Auth } from '@/context/AuthContext' 
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const router = useRouter();
 
-    const { googleAuth } = Auth();
+    const { googleAuth, user } = Auth();
 
         const signUserIn = async (e) => {
             e.preventDefault()
             try {
-                const userInfo = await signInWithEmailAndPassword(auth, email, password);
-                if (userInfo.user) {
-                   router.push("/dashboard")
-                } else {
-                    router.push("/")
-                }
+                await signInWithEmailAndPassword(auth, email, password);
             }catch(err) {
                 console.log("Error authenticating user ", err)
             }

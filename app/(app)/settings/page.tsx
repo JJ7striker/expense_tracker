@@ -1,8 +1,11 @@
+import LogOutBtn from '@/components/LogOutBtn'
 import React from 'react'
 
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <div>
+      <LogOutBtn />
+    </div>
   )
 }
 

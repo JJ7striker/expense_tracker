@@ -132,3 +132,11 @@
 .medium {
   @apply md:relative md:px-0 md:py-0 md:shadow-none md:bg-transparent md:flex-row md:space-y-0 md:space-x-5 md:opacity-100 md:translate-y-0 md:visible
 }
+
+.button_hover:hover {
+  @apply bg-white text-black shadow-sm shadow-gray-500
+}
+
+.li_style {
+  @apply text-gray-700 font-medium text-sm
+}

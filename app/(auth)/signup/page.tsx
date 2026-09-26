@@ -18,12 +18,7 @@ const SignUp = () => {
     const signUserUp = async (e) => {
         e.preventDefault()
         try {
-            const userInfo = await createUserWithEmailAndPassword(auth, email, password);
-            if (userInfo.user) {
-               router.push("/dashboard")
-            } else {
-                router.push("/")
-            }
+            await createUserWithEmailAndPassword(auth, email, password);
         }catch(err) {
             console.log("Error authenticating user ", err)
         }

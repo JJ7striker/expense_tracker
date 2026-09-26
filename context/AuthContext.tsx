@@ -17,8 +17,10 @@ const AuthContextProvider = ({ children }: {children: React.ReactNode}) => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+                router.push("/dashboard");
             } else {
                 setUser(null)
+                router.push("/")
             }
         })
         return () => unsubscribed()
